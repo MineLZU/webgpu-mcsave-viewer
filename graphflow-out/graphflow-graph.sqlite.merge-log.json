@@ -1,0 +1,15 @@
+{
+  "mergedAt": "2026-11-01T06:19:21.586Z",
+  "from": "D:\\Projects\\webgpu-mcsave-viewer\\graphflow-out\\graphflow-graph.json",
+  "stats": {
+    "jsonNodes": 2,
+    "jsonEdges": 1,
+    "addedNodes": 2,
+    "updatedNodes": 0,
+    "keptNodes": 0,
+    "skippedCodeNodes": 0,
+    "renumberedTurns": 0,
+    "addedEdges": 1,
+    "droppedEdges": 0
+  }
+}

@@ -1,0 +1,33 @@
+{
+  "nodes": [
+    {
+      "id": "dialogue-session:7slyx4",
+      "type": "Decision",
+      "content": "dialogue-session session-d2d94cf8-3ce9-4b74-ae9f-c2d367f8e14d turns=1 tip=dialogue:7slyx4:0001",
+      "metadata": {
+        "kind": "dialogue-session",
+        "record": "{\"id\":\"dialogue-session:7slyx4\",\"name\":\"session-d2d94cf8-3ce9-4b74-ae9f-c2d367f8e14d\",\"turnCount\":1,\"topicTokens\":[\"mc\",\"neo中的渲染引擎部分分离出来复制到当前工作区\",\"rusted_mc\",\"wgpu\"],\"createdAt\":1793513946515,\"updatedAt\":1793513946515,\"tipTurnId\":\"dialogue:7slyx4:0001\"}",
+        "name": "session-d2d94cf8-3ce9-4b74-ae9f-c2d367f8e14d"
+      }
+    },
+    {
+      "id": "dialogue:7slyx4:0001",
+      "type": "Decision",
+      "content": "dialogue-turn #1 Q: 将..\\rusted_mc\\wgpu-mc-neo中的渲染引擎部分分离出来复制到当前工作区 | A: (pending)",
+      "metadata": {
+        "kind": "dialogue-turn",
+        "record": "{\"id\":\"dialogue:7slyx4:0001\",\"sessionId\":\"dialogue-session:7slyx4\",\"seq\":1,\"userQuery\":\"将..\\\\rusted_mc\\\\wgpu-mc-neo中的渲染引擎部分分离出来复制到当前工作区\",\"assistantReply\":\"\",\"jumped\":false,\"relatedNodeIds\":[],\"createdAt\":1793513946515,\"updatedAt\":1793513946515,\"title\":\"将..\\\\rusted_mc\\\\wgpu-mc-neo中的渲染…\"}",
+        "seq": 1,
+        "sessionId": "dialogue-session:7slyx4",
+        "jumped": false
+      }
+    }
+  ],
+  "edges": [
+    {
+      "from": "dialogue:7slyx4:0001",
+      "to": "dialogue-session:7slyx4",
+      "relation": "part_of"
+    }
+  ]
+}

@@ -1,0 +1,31 @@
+[workspace]
+
+resolver = "2"
+
+# The wgpu-mc rendering engine, extracted from `wgpu-mc-neo/rust` and detached from the mod that
+# used to build it: no JNI bridge (`wgpu-mc-jni`), no demo binary, no Gradle. What is left is the
+# engine and the two crates it needs to build on its own.
+members = [
+    # The engine itself: device/surface setup, the render graph, the pipeline and shader-pack
+    # layers, the block/entity atlas uploaders, and the Minecraft scene types they draw.
+    "wgpu-mc",
+    # A path dependency of `wgpu-mc`, vendored upstream: the blockstate/model/texture metadata
+    # types the atlas reads. Copied rather than fetched because one field had to be added to it
+    # (a model face's `shade` flag, read as `quad.materialInfo().shade()`).
+    "minecraft-assets",
+    # The tests of the two crates above read the mod's own files out of the Neolectrum checkout,
+    # and this is the crate that finds it. It is a dev-dependency and builds nothing into either
+    # library; it reports the checkout as missing rather than failing the build when it is not
+    # there, so this workspace builds without the mod.
+    "modtree",
+]
+
+[profile.release]
+# Line tables, and only line tables, in the PDB beside the library.
+#
+# A PIX timing capture resolves the functions in its CPU samples and callstacks through PDBs, and a
+# release build without this ships a PDB with no source files in it at all - so every frame from this
+# crate showed up as an address, and the capture's `FunctionInformation`, `SymbolStrings` and
+# `ModuleSymbols` tables came back empty. This costs nothing at runtime (the debug info lives in the
+# PDB, not in the code), adds no locals or types, and is what makes a capture readable.
+debug = "line-tables-only"
