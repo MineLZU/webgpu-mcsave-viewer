@@ -1,0 +1,3 @@
+[submodule "minecraft-protocol"]
+	path = minecraft-protocol
+	url = https://github.com/NTS-official/minecraft-protocol.git
