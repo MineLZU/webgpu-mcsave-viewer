@@ -1,0 +1,6 @@
+.gradle
+.kotlin
+build/
+**/build/
+# Generated dictionary and asset pack; produced by `:assets-tool:run`.
+/generated/
