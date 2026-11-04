@@ -394,8 +394,8 @@ impl WmRenderer {
 
             let uploads = LATE_SPRITE_UPLOADS.fetch_add(1, Ordering::Relaxed) + 1;
             let sprites = LATE_SPRITES.fetch_add(pending, Ordering::Relaxed) + pending;
-            let now = std::time::SystemTime::now()
-                .duration_since(std::time::UNIX_EPOCH)
+            let now = web_time::SystemTime::now()
+                .duration_since(web_time::UNIX_EPOCH)
                 .map(|since| since.as_secs())
                 .unwrap_or(0);
             let reported_at = LATE_SPRITES_REPORTED_AT.load(Ordering::Relaxed);
@@ -671,8 +671,8 @@ impl WmRenderer {
             let was = PARKED_HELD.swap(parked_now, std::sync::atomic::Ordering::Relaxed);
 
             if parked_now != 0 || was != 0 {
-                let now = std::time::SystemTime::now()
-                    .duration_since(std::time::UNIX_EPOCH)
+                let now = web_time::SystemTime::now()
+                    .duration_since(web_time::UNIX_EPOCH)
                     .map(|since| since.as_secs())
                     .unwrap_or(0);
 

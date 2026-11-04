@@ -42,6 +42,21 @@ arrayvec = "0.7.6"
 itertools = "0.13"
 intrusive-collections = "0.9"
 encase = "0.9.0"
+# `std::time::{Instant, SystemTime}` panic on wasm32-unknown-unknown; this is a re-export of them natively
+# and the browser clock on wasm, so the engine's timing code runs unchanged in both.
+web-time = "1.1"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+# naga 30.0.1's GLSL frontend calls `Binding::apply_default_interpolation`, but the module that
+# defines it is only compiled with `spv-in` or `wgsl-in`. Natively `wgpu-core` turns `wgsl-in` on;
+# the browser WebGPU backend hands WGSL to the browser and does not, so `glsl` alone fails to build.
+# Naming naga here only adds that feature through unification; keep the version equal to wgpu's.
+naga = { version = "30.0.1", features = ["wgsl-in"] }
+# The engine keeps GPU handles in `static` locks (the game atlas and lightmap in `render/graph.rs`),
+# which need `Sync`. The browser backend's handles are only `Send + Sync` with this feature, which is
+# sound only while the wasm build has no `atomics`, i.e. runs on one thread. The browser viewer is
+# single-threaded for now; enabling `wasm-bindgen-rayon` later means revisiting this.
+wgpu = { version = "30.0.1", features = ["fragile-send-sync-non-atomic-wasm"] }
 
 [dev-dependencies]
 serde_norway = "0.9.42"

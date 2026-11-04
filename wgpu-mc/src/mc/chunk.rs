@@ -1496,8 +1496,8 @@ fn report_winding(pos: IVec3, layers: &[BakedLayer]) {
     // produced no line at all for reasons that took a run to notice. A line a second is nothing next
     // to a bake's worth of work, and this is the one number that says whether the terrain is wound
     // the way it is drawn.
-    let now = std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
+    let now = web_time::SystemTime::now()
+        .duration_since(web_time::UNIX_EPOCH)
         .map(|since| since.as_secs())
         .unwrap_or(0);
 
@@ -2243,7 +2243,7 @@ fn bake_layers<Provider: BlockStateProvider>(
                 // thing it times, so a run that wants the split asks for it and a run that does not pays
                 // one predictable branch.
                 let phases = phases_on();
-                let cull_started = phases.then(std::time::Instant::now);
+                let cull_started = phases.then(web_time::Instant::now);
 
                 let culled = face_is_culled(face, block_manager, block_state, state_provider, pos);
 
@@ -2288,7 +2288,7 @@ fn bake_layers<Provider: BlockStateProvider>(
                 // is for; it is not a culling question.
                 let light_level: LightLevel = state_provider.get_light_level(pos + dir.to_vec());
 
-                let emit_started = phases.then(std::time::Instant::now);
+                let emit_started = phases.then(web_time::Instant::now);
 
                 add_quad(face, light_level, dir, color);
 

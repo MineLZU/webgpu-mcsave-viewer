@@ -376,8 +376,8 @@ impl SectionSource for FloodWorld<'_> {
 /// many of those have an answer at all - and then, per budget, what the walk reached and how much of it
 /// the game agreed with.
 fn cross_check_the_flood(scene: &Scene, frustum: &Frustum<f32>, camera_section: IVec3) {
-    let now = std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
+    let now = web_time::SystemTime::now()
+        .duration_since(web_time::UNIX_EPOCH)
         .map(|since| since.as_secs())
         .unwrap_or(0);
 
@@ -435,7 +435,7 @@ fn cross_check_the_flood(scene: &Scene, frustum: &Frustum<f32>, camera_section: 
             camera_section,
         };
 
-        let started = std::time::Instant::now();
+        let started = web_time::Instant::now();
         let flood = section_graph::flood(&world, camera_section, budget);
         let took = started.elapsed();
 
@@ -810,8 +810,8 @@ fn report_truncated_draws(truncated: u64) {
 
     let total = TERRAIN_TRUNCATED.fetch_add(truncated, Ordering::Relaxed) + truncated;
 
-    let now = std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
+    let now = web_time::SystemTime::now()
+        .duration_since(web_time::UNIX_EPOCH)
         .map(|since| since.as_secs())
         .unwrap_or(0);
 
@@ -852,8 +852,8 @@ fn the_indirect_path_holds(calls: usize) -> bool {
 fn report_the_indirect_cap(calls: u64) {
     let total = TERRAIN_OVER_CAPACITY.fetch_add(1, Ordering::Relaxed) + 1;
 
-    let now = std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
+    let now = web_time::SystemTime::now()
+        .duration_since(web_time::UNIX_EPOCH)
         .map(|since| since.as_secs())
         .unwrap_or(0);
 
@@ -890,8 +890,8 @@ fn report_terrain_pass() {
         return;
     }
 
-    let now = std::time::SystemTime::now()
-        .duration_since(std::time::UNIX_EPOCH)
+    let now = web_time::SystemTime::now()
+        .duration_since(web_time::UNIX_EPOCH)
         .map(|since| since.as_secs())
         .unwrap_or(0);
 
@@ -2356,7 +2356,7 @@ impl RenderGraph {
         // are the halves of it - the walk of the arena, and building and uploading one set of records per
         // pass. There is no early return in this function to miss, which is why one pair of reads is enough.
         // See [`TERRAIN_BUILD_NANOS`].
-        let build_started = std::time::Instant::now();
+        let build_started = web_time::Instant::now();
 
         // The areas this frame's sections fall in, and their frustum tables: one entry per 128-block
         // region, which is a handful against the thousands of sections inside them.
@@ -2376,7 +2376,7 @@ impl RenderGraph {
         let mut hint_misses = 0u64;
         frame.visible.clear();
 
-        let gather_started = std::time::Instant::now();
+        let gather_started = web_time::Instant::now();
 
         {
             // **Read locks, and they are held for the walk only.** The arena's is a read lock because
@@ -2550,8 +2550,8 @@ impl RenderGraph {
         // **What the plane hint bought**, once a second: a section whose culling plane was the one the
         // section before it was culled by costs one plane test instead of six. See `culled_by`.
         {
-            let now = std::time::SystemTime::now()
-                .duration_since(std::time::UNIX_EPOCH)
+            let now = web_time::SystemTime::now()
+                .duration_since(web_time::UNIX_EPOCH)
                 .map(|since| since.as_secs())
                 .unwrap_or(0);
 
@@ -2599,7 +2599,7 @@ impl RenderGraph {
         // The other half of the frame's build cost, timed from here to the end of the loop below: the record
         // sets (one per pass, each a walk of the sections the gather kept) and their uploads. See
         // [`TERRAIN_RECORDS_NANOS`].
-        let records_started = std::time::Instant::now();
+        let records_started = web_time::Instant::now();
 
         for (name, pipeline) in self.pipelines.iter() {
             let Some(slot) = pipeline.draw_slot else {
