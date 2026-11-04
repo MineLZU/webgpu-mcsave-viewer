@@ -21,6 +21,8 @@ members = [
     # The browser viewer's display protocol: the binary messages between the capture mod, the
     # gateway and the browser, with the shared sample vectors the Kotlin codec is tested against.
     "crates/viewer-protocol",
+    # The browser's Section state: applies protocol messages, tracks revisions, dirty and resync sets.
+    "crates/viewer-world-state",
 ]
 
 [profile.release]

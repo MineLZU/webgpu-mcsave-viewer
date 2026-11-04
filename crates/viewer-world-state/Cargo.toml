@@ -1,0 +1,8 @@
+[package]
+name = "viewer-world-state"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[dependencies]
+viewer-protocol = { path = "../viewer-protocol" }
