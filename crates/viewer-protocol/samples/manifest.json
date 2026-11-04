@@ -1,0 +1,1433 @@
+{
+  "protocol_version": 1,
+  "samples": [
+    {
+      "expect": "ok",
+      "file": "hello.bin",
+      "message": {
+        "biome_count": 65,
+        "block_state_count": 30000,
+        "dimensions": [
+          [
+            "minecraft:overworld",
+            -64,
+            384
+          ],
+          [
+            "minecraft:the_nether",
+            0,
+            256
+          ],
+          [
+            "minecraft:the_end",
+            0,
+            256
+          ]
+        ],
+        "game_version": "1.21.11",
+        "session_id": "81985529216486895",
+        "type": "hello"
+      },
+      "name": "hello"
+    },
+    {
+      "expect": "ok",
+      "file": "subscribe.bin",
+      "message": {
+        "dimension": 0,
+        "generation": 3,
+        "ranges": [
+          [
+            -8,
+            -8,
+            7,
+            7
+          ],
+          [
+            100,
+            -3,
+            100,
+            -3
+          ]
+        ],
+        "type": "subscribe"
+      },
+      "name": "subscribe"
+    },
+    {
+      "expect": "ok",
+      "file": "subscribe_none.bin",
+      "message": {
+        "dimension": 0,
+        "generation": 4,
+        "ranges": [],
+        "type": "subscribe"
+      },
+      "name": "subscribe_none"
+    },
+    {
+      "expect": "ok",
+      "file": "section_layered.bin",
+      "message": {
+        "biome_cells": [
+          [
+            0,
+            40
+          ],
+          [
+            1,
+            41
+          ],
+          [
+            63,
+            41
+          ]
+        ],
+        "biome_palette": [
+          40,
+          41
+        ],
+        "block_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "block_palette": [
+          1,
+          4321,
+          0
+        ],
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            595,
+            4321
+          ],
+          [
+            2047,
+            1
+          ],
+          [
+            2048,
+            0
+          ],
+          [
+            4095,
+            0
+          ]
+        ],
+        "light_revision": 2,
+        "pos": {
+          "dimension": 0,
+          "x": -3,
+          "y": -4,
+          "z": 7
+        },
+        "revision": 5,
+        "sky_light": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            595,
+            0
+          ],
+          [
+            2047,
+            0
+          ],
+          [
+            2048,
+            15
+          ],
+          [
+            4095,
+            15
+          ]
+        ],
+        "type": "section_snapshot"
+      },
+      "name": "section_layered"
+    },
+    {
+      "expect": "ok",
+      "file": "section_wide_palette.bin",
+      "message": {
+        "biome_cells": [
+          [
+            0,
+            7
+          ],
+          [
+            1,
+            7
+          ],
+          [
+            63,
+            7
+          ]
+        ],
+        "biome_palette": [
+          7
+        ],
+        "block_light": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            595,
+            3
+          ],
+          [
+            2047,
+            15
+          ],
+          [
+            2048,
+            0
+          ],
+          [
+            4095,
+            15
+          ]
+        ],
+        "block_palette": [
+          1000,
+          1007,
+          1014,
+          1004,
+          1011,
+          1001,
+          1008,
+          1015,
+          1005,
+          1012,
+          1002,
+          1009,
+          1016,
+          1006,
+          1013,
+          1003,
+          1010
+        ],
+        "cells": [
+          [
+            0,
+            1000
+          ],
+          [
+            1,
+            1007
+          ],
+          [
+            595,
+            1000
+          ],
+          [
+            2047,
+            1015
+          ],
+          [
+            2048,
+            1005
+          ],
+          [
+            4095,
+            1003
+          ]
+        ],
+        "light_revision": 9,
+        "pos": {
+          "dimension": 1,
+          "x": 2000000,
+          "y": 15,
+          "z": -2000000
+        },
+        "revision": 9,
+        "sky_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "type": "section_snapshot"
+      },
+      "name": "section_wide_palette"
+    },
+    {
+      "expect": "ok",
+      "file": "section_empty.bin",
+      "message": {
+        "biome_cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            63,
+            0
+          ]
+        ],
+        "biome_palette": [
+          0
+        ],
+        "block_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "block_palette": [
+          0
+        ],
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            595,
+            0
+          ],
+          [
+            2047,
+            0
+          ],
+          [
+            2048,
+            0
+          ],
+          [
+            4095,
+            0
+          ]
+        ],
+        "light_revision": 1,
+        "pos": {
+          "dimension": 0,
+          "x": 0,
+          "y": 19,
+          "z": 0
+        },
+        "revision": 1,
+        "sky_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "type": "section_snapshot"
+      },
+      "name": "section_empty"
+    },
+    {
+      "expect": "ok",
+      "file": "delta_single.bin",
+      "message": {
+        "base_revision": 5,
+        "changes": [
+          [
+            595,
+            1
+          ]
+        ],
+        "pos": {
+          "dimension": 0,
+          "x": -1,
+          "y": -1,
+          "z": -1
+        },
+        "revision": 6,
+        "type": "block_delta"
+      },
+      "name": "delta_single"
+    },
+    {
+      "expect": "ok",
+      "file": "delta_multi.bin",
+      "message": {
+        "base_revision": 5,
+        "changes": [
+          [
+            4095,
+            9
+          ],
+          [
+            0,
+            0
+          ],
+          [
+            2048,
+            29999
+          ]
+        ],
+        "pos": {
+          "dimension": 0,
+          "x": -1,
+          "y": -1,
+          "z": -1
+        },
+        "revision": 6,
+        "type": "block_delta"
+      },
+      "name": "delta_multi"
+    },
+    {
+      "expect": "ok",
+      "file": "light_update.bin",
+      "message": {
+        "block_light": [
+          [
+            0,
+            15
+          ],
+          [
+            1,
+            15
+          ],
+          [
+            595,
+            15
+          ],
+          [
+            2047,
+            15
+          ],
+          [
+            2048,
+            15
+          ],
+          [
+            4095,
+            15
+          ]
+        ],
+        "light_revision": 11,
+        "pos": {
+          "dimension": 2,
+          "x": 5,
+          "y": 0,
+          "z": -5
+        },
+        "sky_light": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            595,
+            3
+          ],
+          [
+            2047,
+            15
+          ],
+          [
+            2048,
+            0
+          ],
+          [
+            4095,
+            15
+          ]
+        ],
+        "type": "light_update"
+      },
+      "name": "light_update"
+    },
+    {
+      "expect": "ok",
+      "file": "lifecycle_hot.bin",
+      "message": {
+        "dimension": 0,
+        "state": 0,
+        "type": "chunk_lifecycle",
+        "x": -1,
+        "z": 1
+      },
+      "name": "lifecycle_hot"
+    },
+    {
+      "expect": "ok",
+      "file": "lifecycle_unavailable.bin",
+      "message": {
+        "dimension": 1,
+        "state": 2,
+        "type": "chunk_lifecycle",
+        "x": 0,
+        "z": -2147483648
+      },
+      "name": "lifecycle_unavailable"
+    },
+    {
+      "expect": "ok",
+      "file": "resync_subscription.bin",
+      "message": {
+        "generation": 3,
+        "kind": "subscription",
+        "type": "resync_request"
+      },
+      "name": "resync_subscription"
+    },
+    {
+      "expect": "ok",
+      "file": "resync_section.bin",
+      "message": {
+        "kind": "section",
+        "pos": {
+          "dimension": 0,
+          "x": -3,
+          "y": -4,
+          "z": 7
+        },
+        "type": "resync_request"
+      },
+      "name": "resync_section"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "hello_wrong_version.bin",
+      "name": "hello_wrong_version"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "hello_unaligned_min_y.bin",
+      "name": "hello_unaligned_min_y"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "subscribe_inverted_range.bin",
+      "name": "subscribe_inverted_range"
+    },
+    {
+      "error": "truncated",
+      "expect": "decode_error",
+      "file": "section_truncated.bin",
+      "name": "section_truncated"
+    },
+    {
+      "error": "trailing_bytes",
+      "expect": "decode_error",
+      "file": "section_trailing_byte.bin",
+      "name": "section_trailing_byte"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "section_container_tag.bin",
+      "name": "section_container_tag"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "section_palette_of_one.bin",
+      "name": "section_palette_of_one"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "section_palette_too_long.bin",
+      "name": "section_palette_too_long"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "section_index_width.bin",
+      "name": "section_index_width"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "section_index_outside_palette.bin",
+      "name": "section_index_outside_palette"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "light_layer_tag.bin",
+      "name": "light_layer_tag"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "delta_stale_revision.bin",
+      "name": "delta_stale_revision"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "delta_duplicate_index.bin",
+      "name": "delta_duplicate_index"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "delta_index_outside_section.bin",
+      "name": "delta_index_outside_section"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "delta_no_changes.bin",
+      "name": "delta_no_changes"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "lifecycle_state.bin",
+      "name": "lifecycle_state"
+    },
+    {
+      "error": "invalid",
+      "expect": "decode_error",
+      "file": "resync_kind.bin",
+      "name": "resync_kind"
+    },
+    {
+      "error": "unknown_type",
+      "expect": "decode_error",
+      "file": "unknown_type.bin",
+      "name": "unknown_type"
+    },
+    {
+      "error": "truncated",
+      "expect": "decode_error",
+      "file": "empty_message.bin",
+      "name": "empty_message"
+    },
+    {
+      "expect": "out_of_bounds",
+      "file": "section_state_outside_dictionary.bin",
+      "message": {
+        "biome_cells": [
+          [
+            0,
+            40
+          ],
+          [
+            1,
+            41
+          ],
+          [
+            63,
+            41
+          ]
+        ],
+        "biome_palette": [
+          40,
+          41
+        ],
+        "block_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "block_palette": [
+          1,
+          30000,
+          0
+        ],
+        "cells": [
+          [
+            0,
+            1
+          ],
+          [
+            1,
+            1
+          ],
+          [
+            595,
+            30000
+          ],
+          [
+            2047,
+            1
+          ],
+          [
+            2048,
+            0
+          ],
+          [
+            4095,
+            0
+          ]
+        ],
+        "light_revision": 2,
+        "pos": {
+          "dimension": 0,
+          "x": -3,
+          "y": -4,
+          "z": 7
+        },
+        "revision": 5,
+        "sky_light": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            595,
+            0
+          ],
+          [
+            2047,
+            0
+          ],
+          [
+            2048,
+            15
+          ],
+          [
+            4095,
+            15
+          ]
+        ],
+        "type": "section_snapshot"
+      },
+      "name": "section_state_outside_dictionary"
+    },
+    {
+      "expect": "out_of_bounds",
+      "file": "section_biome_outside_dictionary.bin",
+      "message": {
+        "biome_cells": [
+          [
+            0,
+            65
+          ],
+          [
+            1,
+            65
+          ],
+          [
+            63,
+            65
+          ]
+        ],
+        "biome_palette": [
+          65
+        ],
+        "block_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "block_palette": [
+          0
+        ],
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            595,
+            0
+          ],
+          [
+            2047,
+            0
+          ],
+          [
+            2048,
+            0
+          ],
+          [
+            4095,
+            0
+          ]
+        ],
+        "light_revision": 1,
+        "pos": {
+          "dimension": 0,
+          "x": 0,
+          "y": 19,
+          "z": 0
+        },
+        "revision": 1,
+        "sky_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "type": "section_snapshot"
+      },
+      "name": "section_biome_outside_dictionary"
+    },
+    {
+      "expect": "out_of_bounds",
+      "file": "section_above_dimension.bin",
+      "message": {
+        "biome_cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            63,
+            0
+          ]
+        ],
+        "biome_palette": [
+          0
+        ],
+        "block_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "block_palette": [
+          0
+        ],
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            595,
+            0
+          ],
+          [
+            2047,
+            0
+          ],
+          [
+            2048,
+            0
+          ],
+          [
+            4095,
+            0
+          ]
+        ],
+        "light_revision": 1,
+        "pos": {
+          "dimension": 0,
+          "x": 0,
+          "y": 24,
+          "z": 0
+        },
+        "revision": 1,
+        "sky_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "type": "section_snapshot"
+      },
+      "name": "section_above_dimension"
+    },
+    {
+      "expect": "out_of_bounds",
+      "file": "section_below_dimension.bin",
+      "message": {
+        "biome_cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            63,
+            0
+          ]
+        ],
+        "biome_palette": [
+          0
+        ],
+        "block_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "block_palette": [
+          0
+        ],
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            595,
+            0
+          ],
+          [
+            2047,
+            0
+          ],
+          [
+            2048,
+            0
+          ],
+          [
+            4095,
+            0
+          ]
+        ],
+        "light_revision": 1,
+        "pos": {
+          "dimension": 0,
+          "x": 0,
+          "y": -5,
+          "z": 0
+        },
+        "revision": 1,
+        "sky_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "type": "section_snapshot"
+      },
+      "name": "section_below_dimension"
+    },
+    {
+      "expect": "out_of_bounds",
+      "file": "section_nether_above_dimension.bin",
+      "message": {
+        "biome_cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            63,
+            0
+          ]
+        ],
+        "biome_palette": [
+          0
+        ],
+        "block_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "block_palette": [
+          0
+        ],
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            595,
+            0
+          ],
+          [
+            2047,
+            0
+          ],
+          [
+            2048,
+            0
+          ],
+          [
+            4095,
+            0
+          ]
+        ],
+        "light_revision": 1,
+        "pos": {
+          "dimension": 1,
+          "x": 0,
+          "y": 16,
+          "z": 0
+        },
+        "revision": 1,
+        "sky_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "type": "section_snapshot"
+      },
+      "name": "section_nether_above_dimension"
+    },
+    {
+      "expect": "out_of_bounds",
+      "file": "section_unknown_dimension.bin",
+      "message": {
+        "biome_cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            63,
+            0
+          ]
+        ],
+        "biome_palette": [
+          0
+        ],
+        "block_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "block_palette": [
+          0
+        ],
+        "cells": [
+          [
+            0,
+            0
+          ],
+          [
+            1,
+            0
+          ],
+          [
+            595,
+            0
+          ],
+          [
+            2047,
+            0
+          ],
+          [
+            2048,
+            0
+          ],
+          [
+            4095,
+            0
+          ]
+        ],
+        "light_revision": 1,
+        "pos": {
+          "dimension": 3,
+          "x": 0,
+          "y": 0,
+          "z": 0
+        },
+        "revision": 1,
+        "sky_light": [
+          [
+            0,
+            null
+          ],
+          [
+            1,
+            null
+          ],
+          [
+            595,
+            null
+          ],
+          [
+            2047,
+            null
+          ],
+          [
+            2048,
+            null
+          ],
+          [
+            4095,
+            null
+          ]
+        ],
+        "type": "section_snapshot"
+      },
+      "name": "section_unknown_dimension"
+    },
+    {
+      "expect": "out_of_bounds",
+      "file": "delta_state_outside_dictionary.bin",
+      "message": {
+        "base_revision": 5,
+        "changes": [
+          [
+            0,
+            30000
+          ]
+        ],
+        "pos": {
+          "dimension": 0,
+          "x": -1,
+          "y": -1,
+          "z": -1
+        },
+        "revision": 6,
+        "type": "block_delta"
+      },
+      "name": "delta_state_outside_dictionary"
+    },
+    {
+      "expect": "out_of_bounds",
+      "file": "subscribe_unknown_dimension.bin",
+      "message": {
+        "dimension": 9,
+        "generation": 1,
+        "ranges": [],
+        "type": "subscribe"
+      },
+      "name": "subscribe_unknown_dimension"
+    }
+  ],
+  "session_hello": "hello.bin"
+}

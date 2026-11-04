@@ -18,6 +18,9 @@ members = [
     # library; it reports the checkout as missing rather than failing the build when it is not
     # there, so this workspace builds without the mod.
     "modtree",
+    # The browser viewer's display protocol: the binary messages between the capture mod, the
+    # gateway and the browser, with the shared sample vectors the Kotlin codec is tested against.
+    "crates/viewer-protocol",
 ]
 
 [profile.release]

@@ -1,2 +1,5 @@
 # Auto detect text files and perform LF normalization
 * text=auto
+# Display-protocol sample vectors: compared byte for byte by the Rust and Kotlin codecs, so line
+# ending conversion would corrupt the ones that happen to contain no NUL byte.
+crates/viewer-protocol/samples/*.bin binary
