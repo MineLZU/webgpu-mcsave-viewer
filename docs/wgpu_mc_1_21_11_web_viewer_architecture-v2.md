@@ -17,7 +17,7 @@
 
 ## 当前基础与目标拓扑
 
-现有 Rust workspace 只有渲染器及其辅助 crate；`minecraft-protocol/` 是独立 KMP checkout，尚未集成。源码入口见[工程分层](architecture.md)，fork 的版本差异见[fork 集成边界](viewer-fork-integration.md)。
+P0 组件已就位：Rust workspace 含渲染器与 `crates/viewer-*`，`viewer-gateway/` 通过 composite build 引用 submodule `minecraft-protocol/`。源码入口见[工程分层](architecture.md)，fork 的版本差异见[fork 集成边界](viewer-fork-integration.md)。
 
 **Fabric 捕获模组 → Kotlin/Native 网关 → 浏览器状态缓存 → `wgpu-mc` WebGPU**。
 

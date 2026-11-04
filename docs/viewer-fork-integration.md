@@ -5,8 +5,8 @@
 | 项目 | 当前事实 |
 |---|---|
 | 仓库 | `origin`：`NTS-Official/minecraft-protocol`；`upstream`：`czp3009/minecraft-protocol` |
-| 基准 | 上游基线 `cbdf620`；展示器定制在 fork 本地 `master` 的 `883ad48`（未推送），见下方「展示器定制」 |
-| 管理方式 | `minecraft-protocol/` 是主仓库未跟踪的独立 Git checkout，未登记为 submodule |
+| 基准 | 上游基线 `cbdf620`；展示器定制为 `883ad48`，已推送到 `origin/master`，见下方「展示器定制」 |
+| 管理方式 | `minecraft-protocol/` 以 submodule 登记（`.gitmodules`），主仓库固定其 revision |
 | 工程性质 | Kotlin Multiplatform，已有模型、序列化、传输、会话和存档模块，不存在原稿所称的 Rust `codec-only` feature |
 | 版本选择 | 26.3：`minecraft-protocol/buildSrc/src/main/kotlin/com/hiczp/minecraft/buildlogic/MinecraftTarget.kt:16` |
 | 构建 Java | 25：`minecraft-protocol/buildSrc/src/main/kotlin/com/hiczp/minecraft/buildlogic/BuildVersions.kt:11`；不改变游戏端 Java 21 要求 |
@@ -16,11 +16,11 @@
 | 能力 | 集成方式 |
 |---|---|
 | `nbt`、`nbt-serialization`、`world-format`、`world-io` | 网关按需依赖；复用 NBT、Anvil、压缩和只读文件访问，1.21.11 语义投影由展示器适配层负责 |
-| `distribution-metadata` | 用于明确版本的官方资产定位与下载；不使用“最新版本”替代展示器目标 |
+| `distribution-metadata` | 用于明确版本的官方资产定位与下载；不使用“最新版本”替代展示器目标。fork 只建模 26.3 的版本元数据格式，1.21.11 缺 `arguments.default-user-jvm`，`viewer-gateway/assets-tool/src/main/kotlin/com/nts/viewer/assets/OfficialFiles.kt:41` 只读原始 JSON 的 `downloads`，再用 fork 的 `MinecraftDownload` 解析 |
 | Native HTTP/WebSocket | 参考 `minecraft-protocol/demo/web-map/build.gradle.kts:24` 与 `minecraft-protocol/demo/web-map/src/serverMain/kotlin/com/hiczp/minecraft/demo/webmap/WebMapServer.kt:57`；新建网关应用，不扩写二维地图产品 |
 | 注册表与维度 | 从 1.21.11 服务端捕获并附内容哈希；不使用 fork 当前生成的 vanilla 默认值 |
 | 原版包模型与会话 | 不加入热流主链；展示协议单独版本化，Rust 消费展示协议，不直接链接 Kotlin/Wasm 对象 |
-| 依赖固定 | 实现阶段固定 fork revision 并通过 composite build 接入；文档迁移不改变 checkout 或 Git 管理方式 |
+| 依赖固定 | submodule 固定 fork revision；`viewer-gateway/settings.gradle.kts:24` 以 `includeBuild` 接入，并复用 fork 的版本目录 |
 
 ## 展示器定制
 

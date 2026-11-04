@@ -30,6 +30,26 @@
 - 首期单线程 WASM，审计线程、锁和阻塞调用；后续启用 `wasm-bindgen-rayon` 时，由服务器发送 COOP/COEP 并处理跨域资源策略。
 - 实测 Chromium WebGPU：部分方块精度、边界 AO、玻璃/水排序、纹理动画、设备限制、频繁替换网格及设备恢复；现有 shader 测试不能替代浏览器验收。
 
+## 浏览器路径的当前实现
+
+| 环节 | 入口与做法 |
+|---|---|
+| 设备与画布 | `crates/viewer-web/src/web.rs:46`：浏览器侧自建 Device/Queue/Surface，包装成 `wgpu_mc::Gpu` 交给引擎；引擎不读 `Gpu::surface`，由浏览器侧呈现 |
+| 资源 | `crates/viewer-web/src/render.rs:197`：`ContentResources` 以资源包实现 `ResourceProvider`；`init` 后 `bake_blocks` 自建图集，不依赖游戏图集 |
+| 状态映射 | `build_state_table`：字典状态 → `get_model_by_key` → `BlockstateKey`；面标志取自模型 `cull` 位并换成 Java 序 |
+| 着色器与图 | `crates/viewer-web/shaders/terrain.wgsl:1`：不用 immediates，alpha 阈值按管线替换进常量；图配置由 `graph_config` 生成，三个地形通道 |
+| 邻域与着色 | `SectionWindow` 读 3×3×3 Section；草/树叶/水色来自 colormap 或 biome 显式色 |
+| 时钟 | `wgpu-mc` 的 `std::time` 换为 `web-time`，原生行为不变 |
+
 ## 已知偏差
 
-桌面路径与外部 JVM 提供了部分资源、状态和可见性输入；`wgpu-mc/src/mc/mod.rs:824` 的模型烘焙仍要求先注册图集。当前没有浏览器运行入口；Native 编译成功、线程池和性能提升均须独立验证，不承诺零拷贝、固定帧率或固定节省比例。
+| 差异 | 原因与处理 |
+|---|---|
+| 地形通道关闭背面剔除 | 本侧右手相机下引擎烘焙的四边形与 `FrontFace::Ccw` 相反，开剔除只剩背向面；由深度测试取可见面，代价是双倍光栅化，待核对绕序后恢复 |
+| 光照为简化曲线 | `terrain.wgsl` 用天空/方块光的平方曲线和固定面阴影，非游戏 lightmap；AO 按遮挡数线性压暗 |
+| 未处理流体与随机偏移 | `get_fluid`、`get_model_variant` 取默认值：水体不单独成网格，加权变体固定首项 |
+| 着色规则子集 | `tint_of` 只覆盖草、树叶、藤、水和少数定色方块；沼泽/黑森林修饰未实现 |
+| 动画纹理 | 未解析 `.mcmeta`，动画方块显示首帧 |
+| 浏览器验收范围 | Edge 无头（Intel gen-12lp）连 Native 网关画出合成地形，见 `docs/build.md`；未覆盖真实存档、设备丢失恢复、Linux 与独立显卡 |
+
+`wgpu-mc/src/mc/mod.rs:824` 的模型烘焙仍要求先 `init` 注册图集；Native 编译成功、线程池和性能提升均须独立验证，不承诺零拷贝、固定帧率或固定节省比例。

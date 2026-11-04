@@ -16,7 +16,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 - 改完 Rust 代码必须通过 `cargo fmt --all -- --check` 和 `cargo clippy -- -D warnings`。完整流程用 `/rust-check`。
 - 工具链固定为 `rust-toolchain.toml` 里的日期版 nightly，不要改成浮动 `nightly`。
-- `rust-toolchain.toml` 提到的 `.github/workflows/rust-check.yml` 不存在，目前没有 CI，本地检查是唯一关卡。
+- CI 是 `.github/workflows/rust.yml`：ubuntu 上只跑 `cargo build` 与 `cargo test`，不跑 fmt/clippy，也不拉 submodule；这两项仍靠本地。`rust-toolchain.toml` 注释提到的 `rust-check.yml` 不存在。
 - 升级 wgpu 时同步更新 `wgpu-mc/src/lib.rs:963` 的 `get_backend_description`（见 `Cargo.toml` 注释）。
 - `minecraft-assets` 是 edition 2021 的 vendored 上游，其余成员是 2024；它加过一个 `shade` 字段，改动视为与上游的偏差。
 
@@ -28,7 +28,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## `minecraft-protocol/`
 
-- 这是我们维护的 Kotlin Multiplatform 协议库 fork（独立 git 仓库，未被本仓库跟踪），计划中会修改。
+- 这是我们维护的 Kotlin Multiplatform 协议库 fork，以 submodule 登记在本仓库（`.gitmodules`），`viewer-gateway` 通过 `includeBuild` 引用它。
 - 可以修改；在它自己的 git 里提交。它的 `AGENTS.md` 与本文件冲突时，以本文件为准。
 - D: 盘是 exFAT，不支持硬链接：`world-io` 的 `WorldDirectoryLockRegressionTest` 硬链接用例在此必然失败，需克隆到 NTFS 盘（`git clone --no-hardlinks`）复核。
 
