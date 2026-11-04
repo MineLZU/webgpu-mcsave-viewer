@@ -1,0 +1,17 @@
+{
+  "name": "viewer-web-client",
+  "private": true,
+  "version": "0.1.0",
+  "type": "module",
+  "scripts": {
+    "wasm": "node scripts/build-wasm.mjs",
+    "dev": "vite",
+    "build": "node scripts/build-wasm.mjs --release && tsc --noEmit && vite build",
+    "typecheck": "tsc --noEmit"
+  },
+  "devDependencies": {
+    "@webgpu/types": "^0.1.60",
+    "typescript": "^5.9.0",
+    "vite": "^7.1.0"
+  }
+}

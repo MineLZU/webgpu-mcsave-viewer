@@ -1,0 +1,4 @@
+node_modules/
+dist/
+# wasm-bindgen output of crates/viewer-web; produced by `npm run wasm`.
+src/wasm/

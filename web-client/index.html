@@ -1,0 +1,18 @@
+<!doctype html>
+<html lang="zh-CN">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Minecraft 世界展示器</title>
+    <style>
+      html, body { margin: 0; height: 100%; background: #10141a; color: #d8dee9; font: 13px system-ui, sans-serif; }
+      #view { display: block; width: 100%; height: 100%; }
+      #status { position: fixed; left: 8px; top: 8px; padding: 4px 8px; background: #000a; border-radius: 4px; white-space: pre; pointer-events: none; }
+    </style>
+  </head>
+  <body>
+    <canvas id="view" tabindex="0"></canvas>
+    <div id="status">正在连接…</div>
+    <script type="module" src="/src/main.ts"></script>
+  </body>
+</html>
