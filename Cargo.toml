@@ -23,6 +23,8 @@ members = [
     "crates/viewer-protocol",
     # The browser's Section state: applies protocol messages, tracks revisions, dirty and resync sets.
     "crates/viewer-world-state",
+    # The browser viewer's wasm module: WebGPU lifecycle, message intake, dictionary and asset-pack loading.
+    "crates/viewer-web",
 ]
 
 [profile.release]

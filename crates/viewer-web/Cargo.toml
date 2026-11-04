@@ -1,0 +1,37 @@
+[package]
+name = "viewer-web"
+version = "0.1.0"
+edition = "2024"
+publish = false
+
+[lib]
+# `cdylib` is the wasm module wasm-bindgen wraps; `rlib` lets the native tests link the content loaders.
+crate-type = ["cdylib", "rlib"]
+
+[dependencies]
+# The rendering engine; its `wgpu` re-export is the one this crate draws with, so the two never disagree.
+wgpu-mc = { path = "../../wgpu-mc" }
+viewer-protocol = { path = "../viewer-protocol" }
+viewer-world-state = { path = "../viewer-world-state" }
+glam = "0.29"
+image = { version = "0.25", default-features = false, features = ["png"] }
+serde_json = "1.0"
+# Parses the render graph config, as the engine's own config test does.
+serde_norway = "0.9.42"
+# Reads the gateway's asset pack: deflate only, through flate2's pure-Rust backend, which builds for wasm.
+zip = { version = "9.3", default-features = false, features = ["deflate-flate2"] }
+flate2 = { version = "1.1", default-features = false, features = ["rust_backend"] }
+
+[dev-dependencies]
+# `tests/render.rs` builds the engine's `Gpu` itself, whose surface slot is a parking_lot mutex.
+parking_lot = "0.12.1"
+
+[target.'cfg(target_arch = "wasm32")'.dependencies]
+# Adds the browser backend to the engine's wgpu through feature unification; `web.rs` names it as
+# `wgpu_mc::wgpu`, so there is one wgpu in the build.
+wgpu = { version = "30.0.1", features = ["webgpu"] }
+wasm-bindgen = "0.2.129"
+parking_lot = "0.12.1"
+wasm-bindgen-futures = "0.4"
+js-sys = "0.3"
+web-sys = { version = "0.3", features = ["HtmlCanvasElement", "console"] }
